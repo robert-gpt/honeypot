@@ -36,7 +36,7 @@ services:
     ports: ["3306:3306"]
     networks: { dmz: { ipv4_address: 172.18.0.18 } }
 
-#─────────────────── Apache + ModSecurity ───
+#─────────────────── Apache ───
   apache:
     build: ./apache
     image: apache_custom
@@ -45,7 +45,6 @@ services:
     volumes:
       - ./web/:/var/www/html:ro
       - ./volumenes/apache_logs:/var/log/apache2            # access & error
-      - ./volumenes/modsec_logs:/var/log/modsecurity        # audit JSON
     ports: ["80:80"]
     networks: { dmz: { ipv4_address: 172.18.0.12 } }
 
@@ -90,8 +89,6 @@ services:
       - ./volumenes/mysql_log:/var/log/mysql:ro
       - ./volumenes/ftp_logs:/var/log/proftpd:ro
       - ./volumenes/fakessh_logs:/var/log/fakessh:ro
-      # log JSON de ModSecurity (ruta distinta para evitar solaparse)
-      - ./volumenes/modsec_logs:/var/log/modsecurity:ro
       # config & posiciones
       - ./config/promtail-config.yaml:/etc/promtail/config.yml:ro
       - promtail-data:/var/lib/promtail
