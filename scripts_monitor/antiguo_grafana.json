@@ -914,41 +914,6 @@
       },
       "fieldConfig": {
         "defaults": {
-          "custom": {
-            "align": "auto"
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 24,
-        "x": 0,
-        "y": 50
-      },
-      "id": 11,
-      "options": {
-        "showHeader": true,
-        "cellHeight": "sm"
-      },
-      "pluginVersion": "11.6.1",
-      "targets": [
-        {
-          "expr": "{job=\"apache\",type=\"modsec\"}",
-          "refId": "A",
-          "queryType": "range"
-        }
-      ],
-      "title": "Tabla de Alertas ModSecurity (WAF)",
-      "type": "table"
-    },
-    {
-      "datasource": {
-        "type": "loki",
-        "uid": "loki_uid"
-      },
-      "fieldConfig": {
-        "defaults": {
           "color": {
             "mode": "palette-classic"
           },
