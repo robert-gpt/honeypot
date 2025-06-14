@@ -338,7 +338,7 @@
       "pluginVersion": "11.6.1",
       "targets": [
         {
-          "expr": "{job=\"apache\"} |= \"SELECT\" or |= \"UNION\" or |= \"OR 1=1\" or |= \"'--\" or |= \"\"--\" or |= \"%27--\"",
+          "expr": "{job=\"apache\"} | regexp `login\\.php.*(SELECT|UNION|OR 1=1|'--|\\\"--|%27--)`",
           "refId": "A"
         }
       ],
